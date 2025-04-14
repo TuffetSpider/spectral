@@ -50,9 +50,9 @@ public class SpectralBlockModel implements BakedModel, UnbakedModel, FabricBaked
 
     @Override
     public void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
-        // if((MinecraftClient.getInstance().player != null ? MinecraftClient.getInstance().player.getAttributeValue(ModAttributes.SPECTRAL) : 0) ==1){
+         if((MinecraftClient.getInstance().player != null ? MinecraftClient.getInstance().player.getAttributeValue(ModAttributes.SPECTRAL) : 0) ==1){
         mesh.outputTo(context.getEmitter());
-    //}
+    }
     }
 
     @Override
