@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "net.tuffetspider.spectral.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"SpectralMixin",
+		"SpectralVisionAttributeMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
