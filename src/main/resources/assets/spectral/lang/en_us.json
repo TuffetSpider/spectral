@@ -1,3 +1,6 @@
 {
-  "attribute.spectral_vision":"spectral_vision"
+  "attribute.spectral_vision":"spectral_vision",
+  "item.spectral_goggles": "Spectral Goggles",
+  "block.spectral_block": "Spectral Block",
+  "item.spectral_dust": "Spectral Dust"
 }

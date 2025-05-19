@@ -1,6 +1,7 @@
 package net.tuffetspider.spectral.item.custom;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -20,10 +21,8 @@ public class SpectralGogglesItem extends ArmorItem {
         super(material, type, settings);
     }
 
-    @Override
-    public TypedActionResult<ItemStack> equipAndSwap(Item item, World world, PlayerEntity user, Hand hand) {
 
-        return super.equipAndSwap(item, world, user, hand);
-    }
+
+
 }
 

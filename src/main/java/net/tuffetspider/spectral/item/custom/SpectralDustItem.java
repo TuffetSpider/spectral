@@ -25,5 +25,4 @@ public class SpectralDustItem extends Item {
 
     }
 
-
 }

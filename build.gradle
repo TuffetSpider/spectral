@@ -20,13 +20,14 @@ repositories {
 
 loom {
 	splitEnvironmentSourceSets()
-
 	mods {
 		"spectral" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
 	}
+		accessWidenerPath = file("src/main/resources/spectral.accesswidener")
+
 
 }
 

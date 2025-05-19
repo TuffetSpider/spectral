@@ -3,12 +3,12 @@
   "package": "net.tuffetspider.spectral.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "WorldRendererAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "mixins": [
     "SpectralBlockOutlineMixin"
-
   ]
 }

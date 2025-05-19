@@ -29,7 +29,7 @@ public abstract class SpectralMixin {
     @Inject(at= @At("TAIL"),method = "isInvisibleTo", cancellable = true)
     private void renderForSpectralPlayers(PlayerEntity player, CallbackInfoReturnable<Boolean> cir){
     if(this.getEntityWorld().getEntityById(this.getId()) instanceof LivingEntity livingEntity &&
-            livingEntity.getAttributeValue(ModAttributes.SPECTRAL)==1&&player.getAttributeValue(ModAttributes.SPECTRAL)==1){
+            livingEntity.getAttributeValue(ModAttributes.SPECTRAL)==1){
         cir.setReturnValue(false);
     }
     }
