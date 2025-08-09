@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "spectral:spectral_dust"
+    },
+    "title": "Now You See Me",
+    "description": "Obtain Spectral Dust, a peculiar substance that shifts entities from this world",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:adventure/sleep_in_bed",
+  "criteria": {
+    "obtain_spectral_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "spectral:spectral_dust"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_spectral_dust"
+    ]
+  ]
+}

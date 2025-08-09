@@ -3,6 +3,7 @@ package net.tuffetspider.spectral.block;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -26,11 +27,6 @@ public class SpectralBlock extends Block {
         } else return VoxelShapes.empty();
     }
 
-    @Override
-    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        world.getChunk(pos);
-        super.onPlaced(world, pos, state, placer, itemStack);
-    }
 
     @Override
     protected VoxelShape getCullingShape(BlockState state, BlockView world, BlockPos pos) {
@@ -60,10 +56,4 @@ public class SpectralBlock extends Block {
         else return 0.0F;
     }
 
-    @Override
-    protected void spawnBreakParticles(World world, PlayerEntity player, BlockPos pos, BlockState state) {
-        if (player.getAttributeValue(ModAttributes.SPECTRAL) == 1) {
-            super.spawnBreakParticles(world, player, pos, state);
-        } else super.spawnBreakParticles(world, player, pos, Blocks.AIR.getDefaultState());
-    }
 }

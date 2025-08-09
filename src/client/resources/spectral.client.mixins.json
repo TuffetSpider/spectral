@@ -3,6 +3,9 @@
   "package": "net.tuffetspider.spectral.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "SpectralEntityRenderDispatcherMixin",
+    "SpectralGameRendererMixin",
+    "SpectralLivingEntityRendererMixin",
     "WorldRendererAccessor"
   ],
   "injectors": {
