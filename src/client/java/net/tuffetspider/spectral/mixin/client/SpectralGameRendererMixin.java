@@ -26,7 +26,9 @@ public abstract class SpectralGameRendererMixin {
     private void disableShaderDisabling(Entity entity, CallbackInfo ci){
         if(MinecraftClient.getInstance().player!=null){
         if(MinecraftClient.getInstance().player.getAttributeValue(ModAttributes.SPECTRAL)==1){
-        this.loadPostProcessor(Identifier.ofVanilla("shaders/post/invert.json"));
+            //This is disabled for right now as i think the Invert shader is too harsh on the eyes
+            //I'm planning to add a custom shader though
+       // this.loadPostProcessor(Identifier.ofVanilla("shaders/post/invert.json"));
             }
         }
     }
