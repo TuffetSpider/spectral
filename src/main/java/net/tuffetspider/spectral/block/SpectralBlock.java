@@ -3,17 +3,12 @@ package net.tuffetspider.spectral.block;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.pathing.EntityNavigation;
-import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 import net.tuffetspider.spectral.attribute.ModAttributes;
-import org.jetbrains.annotations.Nullable;
 
 public class SpectralBlock extends Block {
     public SpectralBlock(Settings settings) {
@@ -22,9 +17,9 @@ public class SpectralBlock extends Block {
 
     @Override
     protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (context instanceof EntityShapeContext entityShapeContext && entityShapeContext.getEntity() instanceof LivingEntity livingEntity && livingEntity.getAttributeValue(ModAttributes.SPECTRAL) == 1) {
-            return super.getCollisionShape(state, world, pos, context);
-        } else return VoxelShapes.empty();
+        if (context instanceof EntityShapeContext entityShapeContext && entityShapeContext.getEntity() instanceof LivingEntity livingEntity && livingEntity.getAttributeValue(ModAttributes.SPECTRAL) == 0) {
+            return VoxelShapes.empty();
+        } else return super.getCollisionShape(state, world, pos, context);
     }
 
 

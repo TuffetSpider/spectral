@@ -1,3 +1,4 @@
 accessWidener v2 named
 accessible field net/minecraft/client/render/WorldRenderer chunks Lnet/minecraft/client/render/BuiltChunkStorage;
 accessible method net/minecraft/client/render/GameRenderer loadPostProcessor (Lnet/minecraft/util/Identifier;)V
+accessible class net/minecraft/entity/ai/control/MoveControl$State

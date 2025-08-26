@@ -2,6 +2,7 @@ package net.tuffetspider.spectral.block;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -21,6 +22,6 @@ public class ModBlocks {
     public static Block SPECTRAL_BLOCK;
 
     public static void registerModBlocks(){
-SPECTRAL_BLOCK=registerBlock("spectral_block", new SpectralBlock(AbstractBlock.Settings.create().nonOpaque()));
+SPECTRAL_BLOCK=registerBlock("spectral_block", new SpectralBlock(AbstractBlock.Settings.create().nonOpaque().blockVision(Blocks::never).suffocates(Blocks::never)));
     }
 }
