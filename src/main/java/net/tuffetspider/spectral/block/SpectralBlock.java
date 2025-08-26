@@ -3,11 +3,13 @@ package net.tuffetspider.spectral.block;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Ownable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.tuffetspider.spectral.Spectral;
 import net.tuffetspider.spectral.attribute.ModAttributes;
 
 public class SpectralBlock extends Block {
@@ -17,9 +19,18 @@ public class SpectralBlock extends Block {
 
     @Override
     protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (context instanceof EntityShapeContext entityShapeContext && entityShapeContext.getEntity() instanceof LivingEntity livingEntity && livingEntity.getAttributeValue(ModAttributes.SPECTRAL) == 0) {
-            return VoxelShapes.empty();
-        } else return super.getCollisionShape(state, world, pos, context);
+        if (context instanceof EntityShapeContext entityShapeContext) {
+            if (entityShapeContext.getEntity() instanceof LivingEntity livingEntity && livingEntity.getAttributeValue(ModAttributes.SPECTRAL) == 0) {
+                return VoxelShapes.empty();
+            }
+
+            if(entityShapeContext.getEntity() instanceof Ownable ownable && ownable.getOwner() instanceof LivingEntity livingOwner){
+                if(Spectral.isSpectral(livingOwner)){
+                    return super.getCollisionShape(state,world,pos,context);
+                } else return VoxelShapes.empty();
+            }
+        }
+        return super.getCollisionShape(state, world, pos, context);
     }
 
 
