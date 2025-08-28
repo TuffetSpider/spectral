@@ -27,8 +27,7 @@ public abstract class SpectralPersistentProjectileEntityMixin extends Projectile
     private VoxelShape stopArrowsGettingStuckInSpectralBlocks(VoxelShape original){
         BlockPos blockPos = this.getBlockPos();
         BlockState blockState = this.getWorld().getBlockState(blockPos);
-
-        if(this.getOwner() instanceof LivingEntity livingOwner && !Spectral.isSpectral(livingOwner)&&blockState.isOf(ModBlocks.SPECTRAL_BLOCK)){
+        if(blockState.isOf(ModBlocks.SPECTRAL_BLOCK)&&this.getOwner() instanceof LivingEntity livingOwner && !Spectral.isSpectral(livingOwner)){
             return VoxelShapes.empty();
         }
         else return original;

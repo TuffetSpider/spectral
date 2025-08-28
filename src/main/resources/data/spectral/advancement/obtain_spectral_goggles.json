@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "spectral:spectral_goggles"
+    },
+    "title": "A Whole New World",
+    "description": "Craft a pair of Spectral Goggles that allow you to disappear into the Spectral",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+
+  "parent": "spectral:obtain_spectral_dust",
+  "criteria": {
+    "obtain_spectral_goggles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "spectral:spectral_goggles"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_spectral_goggles"
+    ]
+  ]
+}

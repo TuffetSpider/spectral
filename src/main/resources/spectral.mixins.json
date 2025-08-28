@@ -9,6 +9,7 @@
     "SpectralMobEntityMixin",
     "SpectralMoveControlMixin",
     "SpectralPersistentProjectileEntityMixin",
+    "SpectralPlayerEntityMixin",
     "SpectralProjectileEntityMixin"
   ],
   "injectors": {

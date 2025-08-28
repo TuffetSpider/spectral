@@ -3,5 +3,6 @@
   "item.spectral.spectral_goggles": "Spectral Goggles",
   "block.spectral.spectral_block": "Spectral Block",
   "item.spectral.spectral_dust": "Spectral Dust",
-  "itemgroup.spectral.spectral_items": "Spectral"
+  "itemgroup.spectral.spectral_items": "Spectral",
+  "effect.spectral.spectral": "Spectral"
 }

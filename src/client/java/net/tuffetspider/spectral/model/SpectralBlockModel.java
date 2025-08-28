@@ -2,13 +2,11 @@ package net.tuffetspider.spectral.model;
 
 import net.fabricmc.fabric.api.renderer.v1.Renderer;
 import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
-import net.fabricmc.fabric.api.renderer.v1.material.RenderMaterial;
 import net.fabricmc.fabric.api.renderer.v1.mesh.Mesh;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MeshBuilder;
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView;
 import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter;
 import net.fabricmc.fabric.api.renderer.v1.model.FabricBakedModel;
-import net.fabricmc.fabric.api.renderer.v1.model.ModelHelper;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
@@ -17,7 +15,6 @@ import net.minecraft.client.render.model.json.ModelOverrideList;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.util.SpriteIdentifier;
-import net.minecraft.item.ItemStack;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -102,26 +99,18 @@ public class SpectralBlockModel implements BakedModel, UnbakedModel, FabricBaked
 
     @Override
     public @Nullable BakedModel bake(Baker baker, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer) {
-        // Get the sprites
         for(int i = 0; i < SPRITE_IDS.length; ++i) {
             sprites[i] = textureGetter.apply(SPRITE_IDS[i]);
         }
-        // Build the mesh using the Renderer API
-        Renderer renderer = RendererAccess.INSTANCE.getRenderer();
+        Renderer renderer =  RendererAccess.INSTANCE.getRenderer();
         MeshBuilder builder = renderer.meshBuilder();
         QuadEmitter emitter = builder.getEmitter();
 
         for(Direction direction : Direction.values()) {
-            // UP and DOWN share the Y axis
             int spriteIdx = direction == Direction.UP || direction == Direction.DOWN ? SPRITE_TOP : SPRITE_SIDE;
-            // Add a new face to the mesh
             emitter.square(direction, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f);
-            // Set the sprite of the face, must be called after .square()
-            // We haven't specified any UV coordinates, so we want to use the whole texture. BAKE_LOCK_UV does exactly that.
             emitter.spriteBake(sprites[spriteIdx], MutableQuadView.BAKE_LOCK_UV);
-            // Enable texture usage
             emitter.color(-1, -1, -1, -1);
-            // Add the quad to the mesh
             emitter.emit();
         }
         mesh = builder.build();

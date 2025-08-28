@@ -22,6 +22,6 @@ public class ModBlocks {
     public static Block SPECTRAL_BLOCK;
 
     public static void registerModBlocks(){
-SPECTRAL_BLOCK=registerBlock("spectral_block", new SpectralBlock(AbstractBlock.Settings.create().nonOpaque().blockVision(Blocks::never).suffocates(Blocks::never)));
+SPECTRAL_BLOCK=registerBlock("spectral_block", new SpectralBlock(AbstractBlock.Settings.create().nonOpaque().blockVision(Blocks::never).suffocates(Blocks::never).solid()));
     }
 }
