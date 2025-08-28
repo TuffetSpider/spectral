@@ -26,7 +26,7 @@ public class SpectralClient implements ClientModInitializer {
 				//	minecraft.gameRenderer.loadPostProcessor(Identifier.ofVanilla("shaders/post/invert.json"));
 				//}
 			//}
-			if (minecraft.player.getAttributeValue(ModAttributes.SPECTRAL)!=previousSpectral){
+			if (minecraft.player.getAttributeValue(ModAttributes.SPECTRAL)!=previousSpectral && minecraft.worldRenderer.chunks!= null && minecraft.worldRenderer.chunks.chunks!=null){
 			//	minecraft.gameRenderer.disablePostProcessor();
                 for(ChunkBuilder.BuiltChunk chunk : minecraft.worldRenderer.chunks.chunks){
 					chunk.scheduleRebuild(true);

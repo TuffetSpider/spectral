@@ -23,7 +23,6 @@ public abstract class SpectralPlayerEntityMixin extends LivingEntity {
     @ModifyReturnValue(at=@At("RETURN"),method = "canInteractWithBlockAt")
     private boolean disableSpectralInteraction(boolean original, BlockPos pos){
         if(!Spectral.isSpectral(this)&&this.getWorld().getBlockState(pos).isOf(ModBlocks.SPECTRAL_BLOCK)){
-            Spectral.LOGGER.info("test");
             return false;
         }
 
