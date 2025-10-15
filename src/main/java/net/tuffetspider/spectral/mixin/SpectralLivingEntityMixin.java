@@ -62,5 +62,13 @@ public abstract class SpectralLivingEntityMixin extends Entity {
 
         return original;
     }
+    @WrapWithCondition(at= @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setHealth(F)V"),method = "heal")
+    private boolean disableHealingForSpectralEntities(LivingEntity instance, float health){
+        if(this.getAttributeValue(ModAttributes.SPECTRAL)==1){
+            return false;
+        }
+
+        return true;
+    }
 
 }
