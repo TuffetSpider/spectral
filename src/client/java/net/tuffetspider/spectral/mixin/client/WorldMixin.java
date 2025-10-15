@@ -1,7 +1,6 @@
 package net.tuffetspider.spectral.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import net.fabricmc.fabric.api.attachment.v1.AttachmentTarget;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
@@ -32,6 +31,11 @@ public abstract class WorldMixin implements WorldAccess, AutoCloseable {
         if(this.isClient&&chunk.getBlockState(pos).isOf(ModBlocks.SPECTRAL_BLOCK) &&
                 MinecraftClient.getInstance().player!=null&&
                 MinecraftClient.getInstance().player.getAttributeValue(ModAttributes.SPECTRAL)!=1){
+            return Blocks.AIR.getDefaultState();
+        }
+        if(this.isClient&&chunk.getBlockState(pos).isOf(ModBlocks.COLD_IRON_BLOCK) &&
+                MinecraftClient.getInstance().player!=null&&
+                MinecraftClient.getInstance().player.getAttributeValue(ModAttributes.SPECTRAL)!=0){
             return Blocks.AIR.getDefaultState();
         }
 

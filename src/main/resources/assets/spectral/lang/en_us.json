@@ -2,6 +2,7 @@
   "attribute.spectral_vision":"Spectral Vision",
   "item.spectral.spectral_goggles": "Spectral Goggles",
   "block.spectral.spectral_block": "Spectral Block",
+  "block.spectral.cold_iron_block": "Cold Iron Block",
   "item.spectral.spectral_dust": "Spectral Dust",
   "itemgroup.spectral.spectral_items": "Spectral",
   "effect.spectral.spectral": "Spectral"

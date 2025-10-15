@@ -21,6 +21,7 @@ public class ModItemGroups {
                         entries.add(ModItems.SPECTRAL_DUST);
                         entries.add(ModItems.SPECTRAL_GOGGLES);
                         entries.add(ModBlocks.SPECTRAL_BLOCK);
+                        entries.add(ModBlocks.COLD_IRON_BLOCK);
                     })
 
 

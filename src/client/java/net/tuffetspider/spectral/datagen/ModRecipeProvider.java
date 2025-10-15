@@ -2,14 +2,11 @@ package net.tuffetspider.spectral.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.client.recipebook.RecipeBookGroup;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.TagKey;
 import net.tuffetspider.spectral.block.ModBlocks;
 import net.tuffetspider.spectral.item.ModItems;
 
@@ -41,6 +38,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('M',Items.PHANTOM_MEMBRANE)
                 .criterion(hasItem(Items.PHANTOM_MEMBRANE),conditionsFromItem(Items.PHANTOM_MEMBRANE))
                 .offerTo(recipeExporter);
-
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.COLD_IRON_BLOCK.asItem(),8)
+                .pattern("III")
+                .pattern("IDI")
+                .pattern("III")
+                .input('I',Items.IRON_INGOT)
+                .input('D',ModItems.SPECTRAL_DUST)
+                .criterion(hasItem(ModItems.SPECTRAL_DUST), conditionsFromItem(ModItems.SPECTRAL_DUST))
+                .offerTo(recipeExporter);
     }
 }
